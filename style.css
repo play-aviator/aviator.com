@@ -1,3 +1,31 @@
-body { font-family:sans-serif; padding:20px; background:#07122b; color:#eaf4ff; }
-input { margin:5px; padding:5px; border-radius:4px; border:none; }
-button { padding:6px 12px; border-radius:6px; border:none; cursor:pointer; background:#39a0ff; color:#022131; }
+:root{
+  --bg:#07122b; --card:#071a33; --accent:#39a0ff; --accent-2:#00e676; --muted:#9db7c9;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#041025,#07122b);color:#eaf4ff;display:flex;justify-content:center;padding:28px}
+.container{width:100%;max-width:980px}
+.header h1{margin:0;color:var(--accent)}
+.header .sub{margin:6px 0 18px;font-size:14px;color:var(--muted)}
+.game-card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.6);margin-bottom:16px}
+.multiplier-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 12px}
+.multiplier{font-size:84px;font-weight:800;letter-spacing:0.02em;color:var(--accent-2);text-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.multiplier-sub{font-size:14px;color:var(--muted)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:10px}
+.inline{display:flex;flex-direction:column;align-items:flex-start;font-size:13px;color:var(--muted)}
+.inline input{margin-top:6px;padding:8px 10px;border-radius:8px;border:none;background:rgba(255,255,255,0.03);color:var(--text);min-width:150px}
+.btn{background:var(--accent);color:#022131;padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+.btn.accent{background:linear-gradient(90deg,var(--accent),#6dd3ff)}
+.history{margin-top:14px}
+.history-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.round-pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700;color:var(--muted);min-width:64px;text-align:center}
+.round-pill.big{background:linear-gradient(90deg,#2bffb0,#00e676);color:#022131}
+.round-pill.low{background:linear-gradient(90deg,#ff7b7b,#ff5252);color:#fff}
+.payments{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;margin-bottom:16px}
+.payments label{display:block;margin:6px 0;color:var(--muted)}
+.payments input{padding:8px;border-radius:8px;border:none;background:transparent;color:var(--accent-2)}
+.status{margin-top:8px;font-size:13px;color:var(--muted)}
+.footer{color:var(--muted);font-size:12px;text-align:center;margin-top:8px}
+@media (max-width:600px){
+  .multiplier{font-size:44px}
+  .inline input{min-width:110px}
+}
