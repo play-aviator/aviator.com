@@ -1,1 +1,4 @@
+name = "aviator"
+main = "worker/src/index.js"
+compatibility_date = "2025-12-05"
 
