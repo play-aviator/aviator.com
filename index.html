@@ -1,25 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Aviator Game</title>
-<link rel="stylesheet" href="style.css"/>
+  <title>Aviator Game</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial;
+      text-align: center;
+      margin-top: 120px;
+    }
+    #multiplier {
+      font-size: 80px;
+      font-weight: bold;
+      color: #00e676;
+    }
+  </style>
 </head>
 <body>
-  <h1>Aviator Game</h1>
-  <div>Server Seed Hash: <span id="server-hash">loading...</span></div>
-  <label>Client Seed: <input id="client-seed"/></label>
-  <label>Nonce: <input type="number" id="nonce" value="1"/></label>
-  <button id="play-btn">Play</button>
-  <div>Multiplier: <span id="multiplier">1.00×</span></div>
+  <h1>Aviator</h1>
+  <div id="multiplier">Loading...</div>
 
-  <h2>Deposit via M-Pesa</h2>
-  <label>Phone: <input id="phone" placeholder="+2547..."/></label>
-  <label>Amount: <input id="amount" value="100"/></label>
-  <button id="mpesa-btn">Pay</button>
-
-<script src="game.js"></script>
-<script src="payment.js"></script>
+  <script>
+    async function run() {
+      const res = await fetch('/'); 
+      const data = await res.json();
+      document.getElementById('multiplier').innerText = data.multiplier + "x";
+    }
+    run();
+    setInterval(run, 1500);
+  </script>
 </body>
 </html>
