@@ -1,1 +1,13 @@
+{
+  "name": "aviator-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "3.66.0"
+  }
+}
 
