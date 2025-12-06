@@ -1,34 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Aviator Game</title>
-  <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: Arial;
-      text-align: center;
-      margin-top: 120px;
-    }
-    #multiplier {
-      font-size: 80px;
-      font-weight: bold;
-      color: #00e676;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aviator — Live</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Aviator</h1>
-  <div id="multiplier">Loading...</div>
+  <main class="container">
+    <header class="header">
+      <h1>Aviator — Live</h1>
+      <p class="sub">Auto-updating multiplier from <code>aviator.very-hotporns.workers.dev</code></p>
+    </header>
 
-  <script>
-    async function run() {
-      const res = await fetch('/'); 
-      const data = await res.json();
-      document.getElementById('multiplier').innerText = data.multiplier + "x";
-    }
-    run();
-    setInterval(run, 1500);
-  </script>
+    <section class="game-card" aria-live="polite">
+      <div class="multiplier-wrap">
+        <div id="multiplier" class="multiplier">1.00×</div>
+        <div id="multiplier-sub" class="multiplier-sub">waiting for round…</div>
+      </div>
+      <div class="controls">
+        <label class="inline">
+          Client seed
+          <input id="client-seed" type="text" value="" />
+        </label>
+        <label class="inline">
+          Nonce
+          <input id="nonce" type="number" value="1" min="1" />
+        </label>
+        <button id="manual-play" class="btn">Request Play</button>
+      </div>
+      <div class="history">
+        <h4>Recent rounds</h4>
+        <div id="history-strip" class="history-strip" aria-hidden="false"></div>
+      </div>
+    </section>
+
+    <section class="payments">
+      <h3>Deposit (M-Pesa STK push)</h3>
+      <label>Phone <input id="phone" placeholder="+2547..." /></label>
+      <label>Amount <input id="amount" type="number" value="100" min="1" /></label>
+      <button id="mpesa-btn" class="btn accent">Send STK Push</button>
+      <div id="mpesa-status" class="status"></div>
+    </section>
+
+    <footer class="footer">
+      <small>Provably fair: server publishes hash. This frontend only shows live rounds.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="payment.js"></script>
 </body>
 </html>
